@@ -1,5 +1,5 @@
 
-/* ===== Original Portfolio Style ===== */
+/* ===== Dark Purple-Blue Portfolio Theme ===== */
 * {
     margin: 0;
     padding: 0;
@@ -8,39 +8,49 @@
 }
 
 :root {
-    --background: #090d18;
-    --surface: #111827;
-    --surface-light: #172033;
-    --accent: #6c8cff;
-    --text: #f1f5f9;
-    --muted: #a7b1c5;
-    --border: #273249;
+    --background: #080b16;
+    --surface: #101528;
+    --surface-light: #171d35;
+    --accent: #a78bfa;
+    --accent-bright: #8b5cf6;
+    --blue: #60a5fa;
+    --text: #f3f4ff;
+    --muted: #a6aec8;
+    --border: #2a3150;
+    --glow: rgba(139, 92, 246, 0.22);
+}
+
+html {
+    scroll-padding-top: 90px;
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: var(--background);
+    background:
+        radial-gradient(ellipse at 85% 5%, rgba(76, 29, 149, 0.20), transparent 35%),
+        var(--background);
     color: var(--text);
     line-height: 1.7;
 }
 
 a {
-    text-decoration: none;
     color: inherit;
-    transition: 0.3s ease;
+    text-decoration: none;
+    transition: color 0.25s ease, background 0.25s ease,
+                border-color 0.25s ease, transform 0.25s ease;
 }
 
 section {
     scroll-margin-top: 90px;
 }
 
-/* ===== Navigation ===== */
+/* Navigation */
 header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(9, 13, 24, 0.96);
-    backdrop-filter: blur(12px);
+    background: rgba(8, 11, 22, 0.92);
+    backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
 }
 
@@ -61,13 +71,15 @@ header {
     letter-spacing: -1px;
 }
 
-.logo span {
+.logo span,
+.hero h1 span {
     color: var(--accent);
 }
 
 .nav-links {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 25px;
 }
 
@@ -76,18 +88,20 @@ header {
     font-size: 14px;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.social-links a:hover {
     color: var(--accent);
 }
 
-/* ===== Hero ===== */
+/* Hero */
 .hero {
     min-height: 85vh;
     padding: 90px 8%;
     display: flex;
     align-items: center;
     background:
-        radial-gradient(ellipse at 80% 20%, #172746 0%, transparent 48%),
+        radial-gradient(ellipse at 78% 25%, rgba(91, 33, 182, 0.32), transparent 42%),
+        radial-gradient(ellipse at 18% 90%, rgba(37, 99, 235, 0.15), transparent 40%),
         var(--background);
 }
 
@@ -112,10 +126,6 @@ header {
     margin-bottom: 22px;
 }
 
-.hero h1 span {
-    color: var(--accent);
-}
-
 .intro {
     max-width: 650px;
     color: var(--muted);
@@ -133,23 +143,25 @@ header {
 .btn {
     display: inline-block;
     padding: 12px 23px;
-    border-radius: 7px;
+    border-radius: 8px;
     font-size: 14px;
     font-weight: 700;
 }
 
 .btn.primary {
-    background: var(--accent);
-    color: #080d19;
+    background: linear-gradient(110deg, var(--accent-bright), #6366f1);
+    color: #fff;
+    box-shadow: 0 8px 24px var(--glow);
 }
 
 .btn.primary:hover {
     transform: translateY(-3px);
-    background: #8ca4ff;
+    box-shadow: 0 12px 30px var(--glow);
 }
 
 .btn.secondary {
     border: 1px solid var(--border);
+    background: rgba(16, 21, 40, 0.55);
 }
 
 .btn.secondary:hover {
@@ -168,11 +180,7 @@ header {
     font-size: 14px;
 }
 
-.social-links a:hover {
-    color: var(--accent);
-}
-
-/* ===== General Sections ===== */
+/* General Sections */
 .section {
     padding: 85px 8%;
 }
@@ -193,20 +201,22 @@ header {
 .section-heading h2 {
     font-size: clamp(28px, 4vw, 38px);
     line-height: 1.3;
+    letter-spacing: -0.6px;
 }
 
 .dark-section {
-    background: #0d1220;
+    background: linear-gradient(135deg, #0b1020, #111027 75%, #0c1426);
 }
 
-/* ===== About ===== */
+/* About */
 .about-box {
     max-width: 850px;
     margin: auto;
     padding: 30px;
-    background: var(--surface);
+    background: linear-gradient(135deg, var(--surface), #14152b);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 14px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
 }
 
 .about-box p {
@@ -218,7 +228,7 @@ header {
     margin-bottom: 0;
 }
 
-/* ===== Skills ===== */
+/* Skills */
 .skills-container {
     max-width: 1150px;
     margin: auto;
@@ -229,15 +239,17 @@ header {
 
 .skill {
     padding: 24px;
-    background: var(--surface);
+    background: linear-gradient(145deg, var(--surface), #12172b);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    transition: 0.3s ease;
+    border-radius: 12px;
+    transition: transform 0.25s ease, border-color 0.25s ease,
+                box-shadow 0.25s ease;
 }
 
 .skill:hover {
     transform: translateY(-4px);
-    border-color: var(--accent);
+    border-color: var(--accent-bright);
+    box-shadow: 0 10px 28px var(--glow);
 }
 
 .skill h3 {
@@ -250,43 +262,50 @@ header {
     font-size: 14px;
 }
 
-/* ===== Projects ===== */
+/* Projects: Full-width cards */
 .projects-container {
-    max-width: 1150px;
+    width: 100%;
+    max-width: 1000px;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 25px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
     align-items: stretch;
 }
 
 .project {
+    width: 100%;
     min-width: 0;
-    padding: 28px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background: var(--surface);
+    background:
+        linear-gradient(115deg, rgba(139, 92, 246, 0.09), transparent 55%),
+        linear-gradient(145deg, var(--surface), #101426);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    transition: 0.3s ease;
+    border-radius: 14px;
+    transition: transform 0.25s ease, border-color 0.25s ease,
+                box-shadow 0.25s ease;
 }
 
 .project:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent);
+    transform: translateY(-3px);
+    border-color: var(--accent-bright);
+    box-shadow: 0 12px 32px rgba(76, 29, 149, 0.18);
 }
 
 .project-number {
+    display: inline-block;
     color: var(--accent);
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 1.5px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 .project h3 {
-    font-size: 21px;
+    font-size: 22px;
     line-height: 1.4;
     margin-bottom: 14px;
 }
@@ -306,27 +325,28 @@ header {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    margin-top: auto;
-    padding-top: 18px;
+    margin-top: 6px;
+    padding-top: 12px;
 }
 
 .project-buttons a {
     display: inline-block;
-    padding: 9px 15px;
+    padding: 9px 16px;
     border: 1px solid var(--border);
-    border-radius: 6px;
+    border-radius: 7px;
     font-size: 13px;
     font-weight: 700;
 }
 
 .project-buttons a:first-child {
-    background: var(--accent);
-    color: #080d19;
-    border-color: var(--accent);
+    background: linear-gradient(110deg, var(--accent-bright), #6366f1);
+    color: #fff;
+    border-color: transparent;
 }
 
 .project-buttons a:first-child:hover {
-    background: #8ca4ff;
+    background: linear-gradient(110deg, #7c3aed, #4f46e5);
+    transform: translateY(-2px);
 }
 
 .project-buttons a:last-child:hover {
@@ -334,7 +354,7 @@ header {
     color: var(--accent);
 }
 
-/* ===== Contact ===== */
+/* Contact */
 .contact-box {
     max-width: 700px;
     margin: auto;
@@ -353,9 +373,9 @@ header {
     gap: 15px;
     padding: 18px 20px;
     margin-bottom: 12px;
-    background: var(--surface);
+    background: linear-gradient(120deg, var(--surface), #12152a);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .contact-item span {
@@ -370,21 +390,22 @@ header {
 }
 
 .contact-item:hover {
-    border-color: var(--accent);
+    border-color: var(--accent-bright);
+    box-shadow: 0 6px 20px var(--glow);
 }
 
 .contact-item:hover strong {
     color: var(--accent);
 }
 
-/* ===== Footer ===== */
+/* Footer */
 footer {
     padding: 25px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 15px;
-    background: #070a12;
+    background: #070914;
     border-top: 1px solid var(--border);
 }
 
@@ -393,7 +414,7 @@ footer p {
     font-size: 12px;
 }
 
-/* ===== Responsive Design ===== */
+/* Responsive Design */
 @media (max-width: 800px) {
     .navbar {
         padding: 15px 0;
@@ -420,7 +441,7 @@ footer p {
     }
 
     .projects-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 }
 
@@ -442,12 +463,16 @@ footer p {
     }
 
     .skills-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .about-box,
     .project {
         padding: 22px;
+    }
+
+    .project h3 {
+        font-size: 20px;
     }
 
     .contact-item {
